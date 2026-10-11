@@ -43,10 +43,14 @@ nav{padding:20px 0 18px}
 .hero p a{color:#fff;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .hero p a:hover{text-decoration-thickness:2px}
 /* Face sits at ~50% x, ~9-37% y of the source photo. Sizing by aspect ratio keeps the
-   visible window proportional to width, and object-position anchors it on the face. */
-.hero .photo{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:50% 8%;border-radius:20px;margin-top:34px}
-@media (max-width:999px){.hero .photo{aspect-ratio:4/3;object-position:50% 8%}}
+   visible window proportional to width, and object-position anchors it on the face.
+   Stacked (tablet/phone): photo below the copy. Desktop: photo to the right of the copy. */
+.hero .photo{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 8%;border-radius:20px;margin-top:34px}
 @media (max-width:560px){.hero .photo{aspect-ratio:4/5;object-position:50% 4%}}
+@media (min-width:1000px){
+  .hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:56px;align-items:center;padding:56px}
+  .hero .photo{aspect-ratio:4/5;object-position:50% 10%;margin-top:0}
+}
 
 .clients{padding:64px 0 72px;text-align:center}
 .clients h3{font-size:17px;font-weight:500;color:var(--ink)}
@@ -84,10 +88,12 @@ footer{border-top:1px solid #ececec;padding:56px 0 32px}
 
 <main class="wrap">
   <section class="hero">
-    <h1>Aaron Glidden</h1>
-    <h2>Product &amp; Growth Marketing Leader</h2>
-    <p>I help B2B SaaS companies position product for compelling narratives that grow companies.</p>
-    <p>Currently at <a href="https://www.disqo.com" target="_blank" rel="noopener">DISQO</a> leading product marketing.</p>
+    <div class="copy">
+      <h1>Aaron Glidden</h1>
+      <h2>Product &amp; Growth Marketing Leader</h2>
+      <p>I help B2B SaaS companies position product for compelling narratives that grow companies.</p>
+      <p>Currently at <a href="https://www.disqo.com" target="_blank" rel="noopener">DISQO</a> leading product marketing.</p>
+    </div>
     <img class="photo" src="assets/photo.jpg" alt="Portrait of Aaron Glidden" width="1067" height="1600">
   </section>
 
